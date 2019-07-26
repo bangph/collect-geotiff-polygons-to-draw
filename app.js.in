@@ -1,0 +1,51 @@
+
+/*
+var points = [[
+[85.42140751257257,81.67146680487322],
+[97.26596456455438,81.67146680487322],
+[97.26596456455438,79.56181172721718],
+[85.42140751257257,79.56181172721718]
+]];
+var Square = new ol.geom.Polygon(points);
+var SquareFeature = new ol.Feature(Square);
+
+var source = new ol.source.Vector({
+  features: [SquareFeature, SquareFeature1]
+});
+*/
+
+var center_point = [85.42140751257257,79.56181172721718];
+
+$GENERATED_CODE
+
+
+var vectorLayer = new ol.layer.Vector({
+      source: source
+});
+
+var layers = [
+    new ol.layer.Tile({
+        source: new ol.source.TileWMS({
+            url: "https://ahocevar.com/geoserver/wms",
+            params: {'LAYERS': 'ne:NE1_HR_LC_SR_W_DR'}
+        })
+    })
+];
+
+var map = new ol.Map({
+    controls: ol.control.defaults().extend([
+        new ol.control.ScaleLine({
+            units: 'degrees'
+        })
+    ]),
+
+    layers: layers,
+    target: 'map',
+    view: new ol.View({
+        center: center_point,
+        projection : "EPSG:4326",
+        zoom: 6
+    })
+});
+
+map.addLayer(vectorLayer);

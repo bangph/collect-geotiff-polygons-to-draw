@@ -1,0 +1,3 @@
+@Created by: Bang Pham Huu
+Get all bounding boxes of geotiff files (CRS EPSG:4326) in a folder and add them as polygon features in javascript file app.js.
+The result can be viewed in index.html.
